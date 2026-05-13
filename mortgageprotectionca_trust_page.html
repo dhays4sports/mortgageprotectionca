@@ -1,0 +1,786 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>California Mortgage Protection Reviews | Dylan Haysbert</title>
+  <meta name="description" content="California mortgage protection and life insurance reviews for homeowners and families. Review whether your mortgage, income, family responsibilities, and life insurance are aligned." />
+
+  <style>
+    :root {
+      --blue: #003a8f;
+      --blue-dark: #071936;
+      --blue-mid: #124ec4;
+      --red: #e31837;
+      --text: #101827;
+      --muted: #5f6b7a;
+      --bg: #f4f7fb;
+      --surface: #ffffff;
+      --border: #d9e2ef;
+      --soft-blue: #eef4ff;
+      --soft-red: #fff1f3;
+      --shadow: 0 18px 45px rgba(7, 25, 54, 0.12);
+      --radius: 22px;
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+
+    body {
+      margin: 0;
+      font-family: Inter, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      color: var(--text);
+      background: var(--bg);
+      line-height: 1.55;
+    }
+
+    a { color: inherit; text-decoration: none; }
+
+    .topbar {
+      background: var(--blue-dark);
+      color: white;
+      padding: 10px 20px;
+      font-size: 14px;
+    }
+
+    .topbar-inner {
+      max-width: 1180px;
+      margin: auto;
+      display: flex;
+      justify-content: space-between;
+      gap: 16px;
+      flex-wrap: wrap;
+      align-items: center;
+    }
+
+    .topbar strong { color: #ffffff; }
+
+    .nav {
+      background: white;
+      border-bottom: 1px solid var(--border);
+      padding: 16px 20px;
+      position: sticky;
+      top: 0;
+      z-index: 20;
+    }
+
+    .nav-inner {
+      max-width: 1180px;
+      margin: auto;
+      display: flex;
+      justify-content: space-between;
+      gap: 20px;
+      align-items: center;
+    }
+
+    .brand-wrap { display: flex; align-items: center; gap: 14px; }
+
+    .brand { display: flex; flex-direction: column; line-height: 1.15; }
+
+    .brand strong {
+      color: var(--blue-dark);
+      font-size: 18px;
+      letter-spacing: -0.02em;
+    }
+
+    .brand span { color: var(--muted); font-size: 13px; }
+
+    .farmers-badge {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding-right: 14px;
+      border-right: 1px solid var(--border);
+    }
+
+    .farmers-badge img {
+      height: 34px;
+      width: auto;
+      display: block;
+      opacity: 0.92;
+      transition: 0.2s ease;
+    }
+
+    .farmers-badge:hover img { opacity: 1; transform: translateY(-1px); }
+
+    .nav-cta { display: flex; gap: 10px; align-items: center; flex-wrap: wrap; }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 13px 18px;
+      border-radius: 999px;
+      font-weight: 800;
+      font-size: 14px;
+      transition: 0.2s ease;
+      border: 1px solid transparent;
+      cursor: pointer;
+      text-align: center;
+    }
+
+    .btn-primary {
+      background: var(--red);
+      color: white;
+      box-shadow: 0 10px 24px rgba(227, 24, 55, 0.24);
+    }
+
+    .btn-primary:hover { transform: translateY(-1px); box-shadow: 0 14px 28px rgba(227, 24, 55, 0.3); }
+
+    .btn-blue {
+      background: var(--blue);
+      color: white;
+      box-shadow: 0 10px 24px rgba(0, 58, 143, 0.24);
+    }
+
+    .btn-blue:hover { transform: translateY(-1px); box-shadow: 0 14px 28px rgba(0, 58, 143, 0.3); }
+
+    .btn-outline { border-color: var(--border); background: white; color: var(--blue-dark); }
+
+    .hero {
+      background:
+        linear-gradient(115deg, rgba(7, 25, 54, 0.96) 0%, rgba(0, 58, 143, 0.9) 48%, rgba(0, 58, 143, 0.22) 100%),
+        url("https://images.unsplash.com/photo-1560518883-ce09059eeffa?auto=format&fit=crop&w=1800&q=80");
+      background-size: cover;
+      background-position: center;
+      color: white;
+      padding: 88px 20px;
+    }
+
+    .hero-inner {
+      max-width: 1180px;
+      margin: auto;
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      gap: 42px;
+      align-items: center;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      color: #cfe0ff;
+      font-size: 13px;
+      font-weight: 900;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      margin-bottom: 18px;
+    }
+
+    .eyebrow::before {
+      content: "";
+      width: 34px;
+      height: 3px;
+      background: var(--red);
+      border-radius: 10px;
+    }
+
+    h1 {
+      font-size: clamp(42px, 6vw, 74px);
+      line-height: 0.98;
+      margin: 0 0 22px;
+      letter-spacing: -0.055em;
+    }
+
+    .hero p {
+      font-size: 20px;
+      max-width: 680px;
+      color: #edf4ff;
+      margin: 0 0 28px;
+    }
+
+    .hero-actions {
+      display: flex;
+      gap: 14px;
+      flex-wrap: wrap;
+      align-items: center;
+      margin-top: 28px;
+    }
+
+    .hero-note { font-size: 14px; color: #cbd8ee; margin-top: 16px; }
+
+    .hero-card {
+      background: rgba(255,255,255,0.94);
+      color: var(--text);
+      border-radius: var(--radius);
+      padding: 28px;
+      box-shadow: var(--shadow);
+      border: 1px solid rgba(255,255,255,0.7);
+    }
+
+    .hero-card h3 {
+      margin: 0 0 12px;
+      color: var(--blue-dark);
+      font-size: 24px;
+      letter-spacing: -0.03em;
+    }
+
+    .hero-card p { color: var(--muted); font-size: 16px; line-height: 1.55; margin: 0 0 18px; }
+    .hero-card ul { margin: 18px 0 0; padding: 0; list-style: none; }
+
+    .hero-card li {
+      padding: 12px 0;
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      gap: 10px;
+      align-items: flex-start;
+    }
+
+    .hero-card li:last-child { border-bottom: 0; }
+
+    .check {
+      width: 22px;
+      height: 22px;
+      border-radius: 50%;
+      background: var(--soft-blue);
+      color: var(--blue);
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 900;
+      flex: 0 0 auto;
+      margin-top: 1px;
+    }
+
+    section { padding: 72px 20px; }
+    .wrap { max-width: 1180px; margin: auto; }
+    .section-title { max-width: 790px; margin-bottom: 34px; }
+
+    .section-title h2 {
+      margin: 0 0 12px;
+      font-size: clamp(30px, 4vw, 48px);
+      line-height: 1.05;
+      letter-spacing: -0.04em;
+      color: var(--blue-dark);
+    }
+
+    .section-title p { color: var(--muted); font-size: 18px; margin: 0; }
+
+    .problem { background: white; }
+
+    .problem-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 26px;
+      align-items: stretch;
+    }
+
+    .problem-card {
+      padding: 30px;
+      border-radius: var(--radius);
+      background: var(--bg);
+      border: 1px solid var(--border);
+    }
+
+    .problem-card strong {
+      color: var(--blue-dark);
+      font-size: 22px;
+      display: block;
+      margin-bottom: 10px;
+      letter-spacing: -0.02em;
+    }
+
+    .issues-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+    }
+
+    .issue {
+      background: white;
+      border: 1px solid var(--border);
+      border-radius: 18px;
+      padding: 22px;
+      box-shadow: 0 8px 20px rgba(7, 25, 54, 0.05);
+    }
+
+    .issue-icon {
+      width: 44px;
+      height: 44px;
+      border-radius: 14px;
+      background: var(--blue-dark);
+      color: white;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 22px;
+      margin-bottom: 14px;
+    }
+
+    .issue h3 {
+      margin: 0 0 8px;
+      color: var(--red);
+      font-size: 17px;
+      line-height: 1.2;
+      letter-spacing: -0.015em;
+      text-transform: uppercase;
+    }
+
+    .issue p { margin: 0; color: var(--muted); font-size: 15px; }
+
+    .specialist {
+      background: linear-gradient(135deg, var(--blue-dark), var(--blue));
+      color: white;
+    }
+
+    .specialist-grid {
+      display: grid;
+      grid-template-columns: 0.9fr 1.1fr;
+      gap: 34px;
+      align-items: center;
+    }
+
+    .profile-card {
+      background: rgba(255,255,255,0.1);
+      border: 1px solid rgba(255,255,255,0.18);
+      border-radius: var(--radius);
+      padding: 30px;
+    }
+
+    .profile-row { display: flex; gap: 18px; align-items: center; }
+
+    .avatar {
+      width: 96px;
+      height: 96px;
+      border-radius: 50%;
+      background: #dbe7f7;
+      border: 3px solid rgba(255,255,255,0.7);
+      object-fit: cover;
+    }
+
+    .profile-card h3 { margin: 0; font-size: 27px; letter-spacing: -0.03em; }
+    .profile-card span { color: #cfe0ff; font-weight: 700; }
+
+    .license-pill {
+      display: inline-flex;
+      margin-top: 16px;
+      padding: 8px 12px;
+      border-radius: 999px;
+      background: rgba(255,255,255,0.12);
+      border: 1px solid rgba(255,255,255,0.2);
+      color: #ffffff;
+      font-size: 13px;
+      font-weight: 800;
+    }
+
+    .specialist h2 {
+      margin: 0 0 18px;
+      font-size: clamp(30px, 4vw, 48px);
+      line-height: 1.05;
+      letter-spacing: -0.04em;
+    }
+
+    .specialist p { color: #eef4ff; font-size: 18px; margin: 0 0 16px; }
+
+    .process-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 18px; }
+
+    .step {
+      background: white;
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      padding: 24px;
+      position: relative;
+    }
+
+    .step-num {
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      background: var(--red);
+      color: white;
+      font-weight: 900;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 16px;
+    }
+
+    .step h3 { margin: 0 0 8px; color: var(--blue-dark); font-size: 20px; }
+    .step p { color: var(--muted); margin: 0; font-size: 15px; }
+
+    .score-band { background: white; padding-top: 0; }
+
+    .score-box {
+      background:
+        radial-gradient(circle at 88% 18%, rgba(227,24,55,0.08), transparent 32%),
+        linear-gradient(135deg, var(--blue-dark), #0e2d62);
+      color: white;
+      border-radius: var(--radius);
+      padding: 34px;
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 24px;
+      align-items: center;
+      box-shadow: var(--shadow);
+    }
+
+    .score-box h2 {
+      margin: 0 0 10px;
+      font-size: clamp(28px, 4vw, 44px);
+      line-height: 1.05;
+      letter-spacing: -0.04em;
+    }
+
+    .score-box p { margin: 0; color: #dce9ff; font-size: 17px; max-width: 720px; }
+    .score-box .btn { white-space: nowrap; }
+
+    .cta-section { background: white; }
+
+    .cta-grid {
+      display: grid;
+      grid-template-columns: 0.9fr 1.1fr;
+      gap: 34px;
+      align-items: start;
+    }
+
+    .cta-panel {
+      background: var(--blue-dark);
+      color: white;
+      border-radius: var(--radius);
+      padding: 34px;
+      box-shadow: var(--shadow);
+    }
+
+    .cta-panel h2 {
+      margin: 0 0 16px;
+      font-size: 38px;
+      letter-spacing: -0.04em;
+      line-height: 1.05;
+    }
+
+    .cta-panel p { color: #dce9ff; font-size: 17px; margin: 0 0 18px; }
+
+    .contact-box {
+      margin-top: 24px;
+      padding-top: 20px;
+      border-top: 1px solid rgba(255,255,255,0.18);
+      color: #eef4ff;
+    }
+
+    .contact-box strong { color: white; display: block; font-size: 20px; margin-bottom: 6px; }
+
+    form {
+      background: var(--bg);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 28px;
+    }
+
+    .form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+
+    label {
+      display: block;
+      font-size: 13px;
+      font-weight: 800;
+      color: var(--blue-dark);
+      margin-bottom: 6px;
+    }
+
+    input, select, textarea {
+      width: 100%;
+      padding: 13px 14px;
+      border-radius: 12px;
+      border: 1px solid #cbd6e6;
+      background: white;
+      font: inherit;
+      color: var(--text);
+      outline: none;
+    }
+
+    input:focus, select:focus, textarea:focus {
+      border-color: var(--blue);
+      box-shadow: 0 0 0 3px rgba(0, 58, 143, 0.11);
+    }
+
+    textarea { min-height: 110px; resize: vertical; }
+    .full { grid-column: 1 / -1; }
+    .form-note { font-size: 12px; color: var(--muted); margin: 14px 0 0; }
+
+    footer { background: var(--blue-dark); color: white; padding: 34px 20px; }
+
+    .footer-inner {
+      max-width: 1180px;
+      margin: auto;
+      display: flex;
+      justify-content: space-between;
+      gap: 24px;
+      flex-wrap: wrap;
+      align-items: center;
+      font-size: 14px;
+      color: #dce9ff;
+    }
+
+    .footer-inner strong { color: white; display: block; font-size: 18px; }
+
+    @media (max-width: 900px) {
+      .hero-inner, .problem-grid, .specialist-grid, .cta-grid, .score-box { grid-template-columns: 1fr; }
+      .issues-grid { grid-template-columns: 1fr 1fr; }
+      .process-grid { grid-template-columns: 1fr 1fr; }
+      .score-box .btn { width: fit-content; }
+    }
+
+    @media (max-width: 620px) {
+      .nav-inner { align-items: flex-start; flex-direction: column; }
+      .hero { padding: 62px 18px; }
+      section { padding: 54px 18px; }
+      .issues-grid, .process-grid, .form-grid { grid-template-columns: 1fr; }
+      .profile-row { align-items: flex-start; flex-direction: column; }
+      .btn { width: 100%; }
+      .hero-actions { width: 100%; }
+      .score-box .btn { width: 100%; }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="topbar">
+    <div class="topbar-inner">
+      <span><strong>California Mortgage Protection Reviews</strong></span>
+      <span>Dylan Haysbert | Virginia Tam Insurance Agency | Farmers Insurance | Fremont, CA</span>
+    </div>
+  </div>
+
+  <nav class="nav">
+    <div class="nav-inner">
+      <div class="brand-wrap">
+        <a href="https://www.farmers.com/" target="_blank" rel="noopener noreferrer" class="farmers-badge">
+          <img src="https://i.imgur.com/Q0uj7TU.png" alt="Farmers Insurance Logo" />
+        </a>
+        <a href="#" class="brand">
+          <strong>Dylan Haysbert</strong>
+          <span>California Mortgage Protection Reviews</span>
+        </a>
+      </div>
+
+      <div class="nav-cta">
+        <a class="btn btn-outline" href="tel:4088262465">(408) 826-2465</a>
+        <a class="btn btn-primary" href="#review">Request Review</a>
+      </div>
+    </div>
+  </nav>
+
+  <header class="hero">
+    <div class="hero-inner">
+      <div>
+        <div class="eyebrow">Mortgage Protection Review</div>
+        <h1>Could Your Family Keep the Home If Something Happened?</h1>
+        <p>The house may be insured — but that does not always mean the mortgage, income, and family stability are protected if life suddenly changes.</p>
+
+        <div class="hero-actions">
+          <a class="btn btn-primary" href="#review">Request a Mortgage Protection Review</a>
+          <a class="btn btn-outline" href="/life">Check My Mortgage Protection Score</a>
+        </div>
+
+        <div class="hero-note">Educational. No pressure. No obligation. Just a clear second look at how your mortgage protection is structured.</div>
+      </div>
+
+      <aside class="hero-card">
+        <h3>For California homeowners who want clarity</h3>
+        <p>I help families review whether their life insurance, mortgage responsibility, income, and household needs are aligned.</p>
+        <ul>
+          <li><span class="check">✓</span><span>Mortgage payoff and home-stability review</span></li>
+          <li><span class="check">✓</span><span>Income replacement and family runway review</span></li>
+          <li><span class="check">✓</span><span>Coverage amount and term-length review</span></li>
+          <li><span class="check">✓</span><span>Beneficiary, policy purpose, and ownership review</span></li>
+        </ul>
+      </aside>
+    </div>
+  </header>
+
+  <section class="problem">
+    <div class="wrap">
+      <div class="section-title">
+        <h2>Most families insure the house — but never check whether the mortgage would still get paid.</h2>
+        <p>Homeowners insurance protects the structure. Mortgage protection planning is about the people: whether your family would have enough time, income, and stability to keep the home if your income disappeared.</p>
+      </div>
+
+      <div class="problem-grid">
+        <div class="problem-card">
+          <strong>“We have homeowners insurance” is not the same as protection.</strong>
+          Home insurance may help repair or replace the property after a covered loss. It does not replace your income or automatically pay the mortgage if something happens to you.
+        </div>
+        <div class="problem-card">
+          <strong>A policy can exist and still not match the real need.</strong>
+          Many people have some life insurance through work or an old policy — but the amount, length, beneficiary setup, or purpose may not match the mortgage and family responsibilities today.
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="issues">
+    <div class="wrap">
+      <div class="section-title">
+        <h2>Common issues I review with California homeowners and families</h2>
+        <p>The goal is not to scare you or overcomplicate anything. It is to identify whether your coverage matches the real job it needs to do.</p>
+      </div>
+
+      <div class="issues-grid">
+        <div class="issue"><div class="issue-icon">🏠</div><h3>Mortgage payoff gap</h3><p>The coverage amount may not be enough to pay off the mortgage or keep payments manageable.</p></div>
+        <div class="issue"><div class="issue-icon">💵</div><h3>Income replacement gap</h3><p>The bigger issue is often not only the mortgage — it is the missing paycheck behind every monthly bill.</p></div>
+        <div class="issue"><div class="issue-icon">👨‍👩‍👧</div><h3>Family dependency gap</h3><p>Spouses, children, parents, or other dependents may need more runway than the current policy provides.</p></div>
+        <div class="issue"><div class="issue-icon">⏳</div><h3>Term length mismatch</h3><p>A policy may end before the mortgage, child-raising years, or income replacement need is actually over.</p></div>
+        <div class="issue"><div class="issue-icon">📄</div><h3>Old policy assumptions</h3><p>Coverage purchased years ago may not reflect today’s mortgage, income, family size, or cost of living.</p></div>
+        <div class="issue"><div class="issue-icon">🧾</div><h3>Beneficiary confusion</h3><p>Even good coverage can create headaches if beneficiary, ownership, or policy details are outdated.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="specialist">
+    <div class="wrap specialist-grid">
+      <div class="profile-card">
+        <div class="profile-row">
+          <img class="avatar" src="https://i.imgur.com/ByLUjJT.png" alt="Dylan Haysbert headshot" />
+          <div><h3>Dylan Haysbert</h3><span>Insurance Producer</span></div>
+        </div>
+        <div class="license-pill">CA Insurance License #4528400</div>
+      </div>
+
+      <div>
+        <h2>Mortgage protection should be simple enough to understand before life forces the question.</h2>
+        <p>I work with California families to review how life insurance may fit around their home, income, debts, children, and long-term responsibilities.</p>
+        <p>The purpose of the review is simple: understand what you already have, identify the pressure points, and help you decide whether anything should be tightened up.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="process">
+    <div class="wrap">
+      <div class="section-title">
+        <h2>How the review works</h2>
+        <p>Simple, clear, and designed around your actual mortgage and family situation.</p>
+      </div>
+
+      <div class="process-grid">
+        <div class="step"><div class="step-num">1</div><h3>Quick conversation</h3><p>We talk through your mortgage, income, family responsibilities, and existing coverage.</p></div>
+        <div class="step"><div class="step-num">2</div><h3>Protection review</h3><p>I look for gaps around mortgage payoff, income replacement, term length, and beneficiary setup.</p></div>
+        <div class="step"><div class="step-num">3</div><h3>Options</h3><p>If it makes sense, I help you compare clear options through Farmers based on your goals and budget.</p></div>
+        <div class="step"><div class="step-num">4</div><h3>You decide</h3><p>No pressure. You can decide if it makes sense now, later, or not at all.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="score-band">
+    <div class="wrap">
+      <div class="score-box">
+        <div>
+          <h2>Want the 60-second starting point first?</h2>
+          <p>Check your Mortgage Protection Score to see where the biggest protection gaps may be before requesting a full review.</p>
+        </div>
+        <a class="btn btn-primary" href="/life">Check My Mortgage Protection Score</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="cta-section" id="review">
+    <div class="wrap cta-grid">
+      <div class="cta-panel">
+        <h2>Request a Mortgage Protection Review</h2>
+        <p>I simply review how everything is currently structured and identify any potential gaps, mismatches, or areas that may deserve a second look.</p>
+        <p>The goal is clarity, family stability, and proper protection for the home if life changes unexpectedly.</p>
+
+        <div class="contact-box">
+          <strong>Dylan Haysbert</strong>
+          CA Insurance License #4528400<br />
+          Virginia Tam Insurance Agency<br />
+          Farmers Insurance<br />
+          Fremont, CA<br /><br />
+          Call or text: <a href="tel:4088262465">(408) 826-2465</a>
+        </div>
+      </div>
+
+      <form action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
+        <input type="hidden" name="_subject" value="New Mortgage Protection Review Request" />
+        <input type="hidden" name="source" value="MortgageProtectionCA.com" />
+        <input type="hidden" name="coverage_type" value="Life Insurance / Mortgage Protection" />
+
+        <div class="form-grid">
+          <div><label for="name">Name</label><input id="name" name="name" type="text" required /></div>
+          <div><label for="phone">Phone</label><input id="phone" name="phone" type="tel" required /></div>
+          <div><label for="email">Email</label><input id="email" name="email" type="email" /></div>
+          <div><label for="city">City or ZIP</label><input id="city" name="city_or_zip" type="text" /></div>
+
+          <div>
+            <label for="mortgage">Approx. mortgage balance</label>
+            <select id="mortgage" name="approx_mortgage_balance">
+              <option value="">Select one</option>
+              <option>Under $250,000</option>
+              <option>$250,000 to $500,000</option>
+              <option>$500,000 to $750,000</option>
+              <option>$750,000 to $1,000,000</option>
+              <option>$1,000,000+</option>
+              <option>Not sure</option>
+            </select>
+          </div>
+
+          <div>
+            <label for="years">Years left on mortgage</label>
+            <select id="years" name="years_left_on_mortgage">
+              <option value="">Select one</option>
+              <option>20+ years</option>
+              <option>10 to 20 years</option>
+              <option>5 to 10 years</option>
+              <option>Less than 5 years</option>
+              <option>No mortgage</option>
+              <option>Not sure</option>
+            </select>
+          </div>
+
+          <div>
+            <label for="dependents">Who depends on your income?</label>
+            <select id="dependents" name="dependents">
+              <option value="">Select one</option>
+              <option>Spouse / partner and children</option>
+              <option>Children</option>
+              <option>Spouse / partner</option>
+              <option>Parents or other family</option>
+              <option>No one financially depends on me</option>
+            </select>
+          </div>
+
+          <div>
+            <label for="coverage">Current life insurance</label>
+            <select id="coverage" name="current_life_insurance">
+              <option value="">Select one</option>
+              <option>I have coverage through work</option>
+              <option>I have my own policy</option>
+              <option>I have both work and personal coverage</option>
+              <option>I do not have life insurance</option>
+              <option>Not sure</option>
+            </select>
+          </div>
+
+          <div class="full">
+            <label for="concern">Biggest concern</label>
+            <select id="concern" name="biggest_concern">
+              <option value="">Select one</option>
+              <option>Keeping the home if something happens</option>
+              <option>Replacing income for my family</option>
+              <option>Making sure my kids / spouse are protected</option>
+              <option>Knowing how much coverage I need</option>
+              <option>Price / affordability</option>
+              <option>Not sure, I just want a review</option>
+            </select>
+          </div>
+
+          <div class="full"><label for="message">Anything else I should know?</label><textarea id="message" name="message"></textarea></div>
+
+          <div class="full">
+            <button class="btn btn-primary" type="submit">Request Review</button>
+            <p class="form-note">By submitting this form, you agree to be contacted by Dylan Haysbert with Virginia Tam Insurance Agency regarding your insurance request. Coverage is subject to underwriting approval, eligibility, policy terms, and availability. This page is educational and not financial, legal, or tax advice.</p>
+          </div>
+        </div>
+      </form>
+    </div>
+  </section>
+
+  <footer>
+    <div class="footer-inner">
+      <div><strong>Dylan Haysbert</strong>California Mortgage Protection Reviews</div>
+      <div>Virginia Tam Insurance Agency | Farmers Insurance | Fremont, CA</div>
+      <div><a href="tel:4088262465">(408) 826-2465</a><br />CA Insurance License #4528400</div>
+    </div>
+  </footer>
+</body>
+</html>
